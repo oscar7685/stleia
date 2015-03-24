@@ -1,7 +1,9 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.stleia.beans;
 
 import java.io.Serializable;
@@ -21,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Oscar
+ * @author acreditacion
  */
 @Entity
 @Table(name = "usuarios", catalog = "stleia", schema = "")
@@ -72,8 +74,6 @@ public class Usuarios implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "fecharegistro")
     private String fecharegistro;
-    @Basic(optional = false)
-    @NotNull
     @Lob
     @Column(name = "estadousuario")
     private byte[] estadousuario;
@@ -85,7 +85,7 @@ public class Usuarios implements Serializable {
         this.idusuarios = idusuarios;
     }
 
-    public Usuarios(Integer idusuarios, String nombre, String apellido, String password, String rol, String fechanacimiento, String fecharegistro, byte[] estadousuario) {
+    public Usuarios(Integer idusuarios, String nombre, String apellido, String password, String rol, String fechanacimiento, String fecharegistro) {
         this.idusuarios = idusuarios;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -93,7 +93,6 @@ public class Usuarios implements Serializable {
         this.rol = rol;
         this.fechanacimiento = fechanacimiento;
         this.fecharegistro = fecharegistro;
-        this.estadousuario = estadousuario;
     }
 
     public Integer getIdusuarios() {

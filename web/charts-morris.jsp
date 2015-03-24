@@ -20,9 +20,9 @@
         <link href="assets/fonts/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">        <!-- Font Awesome -->
         <link href="assets/css/styles.css" type="text/css" rel="stylesheet">                                     <!-- Core CSS with all styles -->
 
-        <link href="assets/plugins/jstree/dist/themes/avalon/style.min.css" type="text/css" rel="stylesheet">    <!-- jsTree -->
-        <link href="assets/plugins/codeprettifier/prettify.css" type="text/css" rel="stylesheet">                <!-- Code Prettifier -->
-        <link href="assets/plugins/iCheck/skins/minimal/blue.css" type="text/css" rel="stylesheet">              <!-- iCheck -->
+       <!-- <link href="assets/plugins/jstree/dist/themes/avalon/style.min.css" type="text/css" rel="stylesheet">    <!-- jsTree -->
+       <!-- <link href="assets/plugins/codeprettifier/prettify.css" type="text/css" rel="stylesheet">                <!-- Code Prettifier -->
+       <!-- <link href="assets/plugins/iCheck/skins/minimal/blue.css" type="text/css" rel="stylesheet">              <!-- iCheck -->
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
         <!--[if lt IE 9]>
@@ -93,7 +93,7 @@
                                     <ul class="acc-menu">
                                         <li><a href="javascript:;"><i class="fa fa-bar-chart-o"></i><span>Analytica</span></a>
                                             <ul class="acc-menu">
-                                                <li><a href="charts-morris.html">Informes</a></li>
+                                                <li><a href="#">Informes</a></li>
                                                 <li><a href="#">Otros informes</a></li>
                                             </ul>
                                         </li>
@@ -155,6 +155,54 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h2>TEMPERATURA FREIDORA 2 VS SETPOINT</h2>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div id="line-example5"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h2>TEMPERATURA FREIDORA 2 VS TEMPERATURA ALTA PROGRAMADA</h2>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div id="line-example6"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h2>TEMPERATURA FREIDORA 2 VS TEMPERATURA BAJA PROGRAMADA</h2>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div id="line-example7"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h2>ALARMAS TEMPERATURA ALTA Y BAJA</h2>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div id="line-example8"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
 
                             </div> <!-- .container-fluid -->
@@ -163,7 +211,7 @@
                     <footer role="contentinfo">
                         <div class="clearfix">
                             <ul class="list-unstyled list-inline pull-left">
-                                <li><h6 style="margin: 0;"> &copy; 2014 Avalon</h6></li>
+                                <li><h6 style="margin: 0;"> &copy; 2015 Stleia</h6></li>
                             </ul>
                             <button class="pull-right btn btn-link btn-xs hidden-print" id="back-to-top"><i class="fa fa-arrow-up"></i></button>
                         </div>
@@ -188,24 +236,24 @@
         <script src="assets/js/jqueryui-1.9.2.min.js"></script> 							<!-- Load jQueryUI -->
         <script src="assets/js/bootstrap.min.js"></script> 								<!-- Load Bootstrap -->
 
-        <script src="assets/plugins/sparklines/jquery.sparklines.min.js"></script>  		<!-- Sparkline -->
-        <script src="assets/plugins/jstree/dist/jstree.min.js"></script>  				<!-- jsTree -->
+        <!--<script src="assets/plugins/sparklines/jquery.sparklines.min.js"></script>  		<!-- Sparkline -->
+        <!--<script src="assets/plugins/jstree/dist/jstree.min.js"></script>  				<!-- jsTree -->
 
-        <script src="assets/plugins/codeprettifier/prettify.js"></script> 				<!-- Code Prettifier  -->
-        <script src="assets/plugins/bootstrap-switch/bootstrap-switch.js"></script> 		<!-- Swith/Toggle Button -->
+        <!--<script src="assets/plugins/codeprettifier/prettify.js"></script> 				<!-- Code Prettifier  -->
+        <!--<script src="assets/plugins/bootstrap-switch/bootstrap-switch.js"></script> 		<!-- Swith/Toggle Button -->
 
-        <script src="assets/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js"></script>  <!-- Bootstrap Tabdrop -->
+        <!--<script src="assets/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js"></script>  <!-- Bootstrap Tabdrop -->
 
-        <script src="assets/plugins/iCheck/icheck.min.js"></script>     					<!-- iCheck -->
+        <!--<script src="assets/plugins/iCheck/icheck.min.js"></script>     					<!-- iCheck -->
 
         <script src="assets/js/enquire.min.js"></script> 									<!-- Enquire for Responsiveness -->
 
-        <script src="assets/plugins/bootbox/bootbox.js"></script>							<!-- Bootbox -->
+        <!--<script src="assets/plugins/bootbox/bootbox.js"></script>							<!-- Bootbox -->
 
-        <script src="assets/plugins/simpleWeather/jquery.simpleWeather.min.js"></script> <!-- Weather plugin-->
+        <!--<script src="assets/plugins/simpleWeather/jquery.simpleWeather.min.js"></script> <!-- Weather plugin-->
 
         <script src="assets/js/application.js"></script>
-        <script src="assets/demo/demo.js"></script>
+       <!-- <script src="assets/demo/demo.js"></script>-->
 
 
 
@@ -223,6 +271,27 @@
                 var datosAF1vsAF2;
                 var datosTF1;
                 var datosTF2;
+                var datosT1vsSP;
+                var datosT1vsTA, datosT1vsTB, datosAAvsAB;
+                
+                $.ajax({
+                    type: "POST",
+                    url: 'Informes?accion=8',
+                    dataType: 'json',
+                    success: function(dat)
+                    {
+                        datosAAvsAB = dat['0']["datos"];
+                        Morris.Line({
+                            element: 'line-example8',
+                            data: datosAAvsAB,
+                            xkey: 'y',
+                            ykeys: ['a','b'],
+                            labels: ['Alerta Temperatura Alta 1 ', 'Alerta Temperatura Baja 1'],
+                            lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
+                        });
+                    } //fin success
+                }); //fin del $.ajax
+                
                 $.ajax({
                     type: "POST",
                     url: 'Informes?accion=1',
@@ -294,8 +363,61 @@
                         });
                     } //fin success
                 }); //fin del $.ajax
-
                 
+
+                $.ajax({
+                    type: "POST",
+                    url: 'Informes?accion=5',
+                    dataType: 'json',
+                    success: function(dat)
+                    {
+                        datosT1vsSP = dat['0']["datos"];
+                        Morris.Line({
+                            element: 'line-example5',
+                            data: datosT1vsSP,
+                            xkey: 'y',
+                            ykeys: ['a','b'],
+                            labels: ['Temperatura freidora 1 ', 'SetPoint'],
+                            lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
+                        });
+                    } //fin success
+                }); //fin del $.ajax
+                
+                $.ajax({
+                    type: "POST",
+                    url: 'Informes?accion=6',
+                    dataType: 'json',
+                    success: function(dat)
+                    {
+                        datosT1vsTA = dat['0']["datos"];
+                        Morris.Line({
+                            element: 'line-example6',
+                            data: datosT1vsTA,
+                            xkey: 'y',
+                            ykeys: ['a','b'],
+                            labels: ['Temperatura freidora 1 ', 'Temperatura alta programada'],
+                            lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
+                        });
+                    } //fin success
+                }); //fin del $.ajax
+                $.ajax({
+                    type: "POST",
+                    url: 'Informes?accion=7',
+                    dataType: 'json',
+                    success: function(dat)
+                    {
+                        datosT1vsTB = dat['0']["datos"];
+                        Morris.Line({
+                            element: 'line-example7',
+                            data: datosT1vsTB,
+                            xkey: 'y',
+                            ykeys: ['a','b'],
+                            labels: ['Temperatura freidora 1 ', 'Temperatura baja programada'],
+                            lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
+                        });
+                    } //fin success
+                }); //fin del $.ajax
+               
 
             });
 
