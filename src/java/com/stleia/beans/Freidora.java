@@ -1,9 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.stleia.beans;
 
 import java.io.Serializable;
@@ -22,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author acreditacion
+ * @author Usuario
  */
 @Entity
 @Table(name = "freidora", catalog = "stleia", schema = "")
@@ -50,10 +48,8 @@ public class Freidora implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "potencia")
     private String potencia;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "tanque_idtanque")
-    private int tanqueIdtanque;
+    private Integer tanqueIdtanque;
 
     public Freidora() {
     }
@@ -62,11 +58,10 @@ public class Freidora implements Serializable {
         this.idfreidora = idfreidora;
     }
 
-    public Freidora(Integer idfreidora, String valvuladegas, String potencia, int tanqueIdtanque) {
+    public Freidora(Integer idfreidora, String valvuladegas, String potencia) {
         this.idfreidora = idfreidora;
         this.valvuladegas = valvuladegas;
         this.potencia = potencia;
-        this.tanqueIdtanque = tanqueIdtanque;
     }
 
     public Integer getIdfreidora() {
@@ -93,11 +88,11 @@ public class Freidora implements Serializable {
         this.potencia = potencia;
     }
 
-    public int getTanqueIdtanque() {
+    public Integer getTanqueIdtanque() {
         return tanqueIdtanque;
     }
 
-    public void setTanqueIdtanque(int tanqueIdtanque) {
+    public void setTanqueIdtanque(Integer tanqueIdtanque) {
         this.tanqueIdtanque = tanqueIdtanque;
     }
 

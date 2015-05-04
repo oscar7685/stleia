@@ -1,9 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.stleia.beans;
 
 import java.io.Serializable;
@@ -23,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author acreditacion
+ * @author Usuario
  */
 @Entity
 @Table(name = "registro", catalog = "stleia", schema = "")
@@ -39,8 +37,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Registro.findByTemperaturasetpoint", query = "SELECT r FROM Registro r WHERE r.temperaturasetpoint = :temperaturasetpoint"),
     @NamedQuery(name = "Registro.findByTempalta", query = "SELECT r FROM Registro r WHERE r.tempalta = :tempalta"),
     @NamedQuery(name = "Registro.findByTemperaturadebaja", query = "SELECT r FROM Registro r WHERE r.temperaturadebaja = :temperaturadebaja"),
-    @NamedQuery(name = "Registro.findByAlarmatempalta", query = "SELECT r FROM Registro r WHERE r.alarmatempalta = :alarmatempalta"),
-    @NamedQuery(name = "Registro.findByAlarmabaja", query = "SELECT r FROM Registro r WHERE r.alarmabaja = :alarmabaja"),
     @NamedQuery(name = "Registro.findByModoactual", query = "SELECT r FROM Registro r WHERE r.modoactual = :modoactual"),
     @NamedQuery(name = "Registro.findByProductoaprocesarIdproductoaprocesar", query = "SELECT r FROM Registro r WHERE r.productoaprocesarIdproductoaprocesar = :productoaprocesarIdproductoaprocesar"),
     @NamedQuery(name = "Registro.findByFreidoraIdfreidora", query = "SELECT r FROM Registro r WHERE r.freidoraIdfreidora = :freidoraIdfreidora"),
@@ -113,14 +109,14 @@ public class Registro implements Serializable {
     private double temperaturadebaja;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 1)
+    @Lob
     @Column(name = "alarmatempalta")
-    private String alarmatempalta;
+    private byte[] alarmatempalta;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 1)
+    @Lob
     @Column(name = "alarmabaja")
-    private String alarmabaja;
+    private byte[] alarmabaja;
     @Basic(optional = false)
     @NotNull
     @Lob
@@ -156,7 +152,7 @@ public class Registro implements Serializable {
         this.idregistro = idregistro;
     }
 
-    public Registro(Integer idregistro, String fechaderegistro, String horaderegistro, byte[] valvulaentradaestado, byte[] valvulasalidaestado, byte[] alarmaacealto, byte[] alarmaacemedio, byte[] alarmaacebaj, double cargaraceite, double lecturanivelaceite, double temperaturaactual, double temperaturasetpoint, double tempalta, double temperaturadebaja, String alarmatempalta, String alarmabaja, byte[] valvuladegasestado, String modoactual, int productoaprocesarIdproductoaprocesar, int freidoraIdfreidora, int tanqueIdtanque, byte[] encendidofreidora) {
+    public Registro(Integer idregistro, String fechaderegistro, String horaderegistro, byte[] valvulaentradaestado, byte[] valvulasalidaestado, byte[] alarmaacealto, byte[] alarmaacemedio, byte[] alarmaacebaj, double cargaraceite, double lecturanivelaceite, double temperaturaactual, double temperaturasetpoint, double tempalta, double temperaturadebaja, byte[] alarmatempalta, byte[] alarmabaja, byte[] valvuladegasestado, String modoactual, int productoaprocesarIdproductoaprocesar, int freidoraIdfreidora, int tanqueIdtanque, byte[] encendidofreidora) {
         this.idregistro = idregistro;
         this.fechaderegistro = fechaderegistro;
         this.horaderegistro = horaderegistro;
@@ -293,19 +289,19 @@ public class Registro implements Serializable {
         this.temperaturadebaja = temperaturadebaja;
     }
 
-    public String getAlarmatempalta() {
+    public byte[] getAlarmatempalta() {
         return alarmatempalta;
     }
 
-    public void setAlarmatempalta(String alarmatempalta) {
+    public void setAlarmatempalta(byte[] alarmatempalta) {
         this.alarmatempalta = alarmatempalta;
     }
 
-    public String getAlarmabaja() {
+    public byte[] getAlarmabaja() {
         return alarmabaja;
     }
 
-    public void setAlarmabaja(String alarmabaja) {
+    public void setAlarmabaja(byte[] alarmabaja) {
         this.alarmabaja = alarmabaja;
     }
 

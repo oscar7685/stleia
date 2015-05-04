@@ -5,7 +5,7 @@
         session1.invalidate();
     } else {
         if (aux.equals("Admin")) {
-            RequestDispatcher rd = request.getRequestDispatcher("charts-morris.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/vista/index.jsp");
             rd.forward(request, response);
         }
     }

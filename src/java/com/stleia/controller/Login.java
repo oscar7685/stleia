@@ -51,8 +51,8 @@ public class Login extends HttpServlet {
             
             if (u != null && u.getPassword().equals(pass) && u.getRol().equals(tipoIngreso)) {
                 session.setAttribute("Usuario", "Admin");
-                session.setAttribute("registros", registroFacade.findAll());
-                RequestDispatcher rd = request.getRequestDispatcher("charts-morris.jsp");
+                String url = "/WEB-INF/vista/index.jsp";
+                RequestDispatcher rd = request.getRequestDispatcher(url);
                 rd.forward(request, response);
             } else {
                 System.out.println("ERROR de Login!!!");
