@@ -100,17 +100,10 @@
             if (this.value === 'Freidora') {
                 $(".tanque").hide();
                 $(".freidora").show();
-                //console.log($('.freidora input').length);
-                $('#potencia').parsley('addConstraint', {required: true});
-                $('#valvula').parsley('addConstraint', {required: true});
-
-            } else {
+              } else {
                 if (this.value === 'Tanque') {
                     $(".freidora").hide();
                     $(".tanque").show();
-                    //console.log($('.tanque input').length);
-                    $('#potencia').parsley('addConstraint', {required: true});
-                    $('#valvula').parsley('addConstraint', {required: true});
                 } else {
                     $(".freidora").hide();
                     $(".tanque").hide();
