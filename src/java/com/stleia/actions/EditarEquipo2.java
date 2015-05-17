@@ -8,6 +8,8 @@ import com.stleia.beans.Equipoinsdustrial;
 import com.stleia.interfaz.Action;
 import com.stleia.sessionbeans.EquipoinsdustrialFacade;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -21,19 +23,35 @@ import javax.servlet.http.HttpSession;
  *
  * @author Usuario
  */
-public class EditarEquipo implements Action {
-
+public class EditarEquipo2 implements Action {
     EquipoinsdustrialFacade equipoinsdustrialFacade = lookupEquipoinsdustrialFacadeBean();
 
     @Override
     public String procesar(HttpServletRequest request) throws IOException, ServletException {
         HttpSession sesion = request.getSession();
-        String idEquipo = request.getParameter("id");
-        int idEquipoI = Integer.parseInt(idEquipo);
-        Equipoinsdustrial eq = equipoinsdustrialFacade.find(idEquipoI);
-        sesion.setAttribute("equipo", eq);
+        String nombre = request.getParameter("nombre");
+        String fecha_registro = request.getParameter("fechar");
+        String tipo_equipo = request.getParameter("tipoe");
 
-        return "/WEB-INF/vista/equipos/editar.jsp";
+        Equipoinsdustrial ei = (Equipoinsdustrial) sesion.getAttribute("equipo");
+        ei.setNombredeequipo(nombre);
+        SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaI = null;
+        try {
+
+            fechaI = formatoDelTexto.parse(fecha_registro);
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+
+        }
+
+        ei.setFechaderegsitro(fechaI);
+        ei.setTipoequipo(tipo_equipo);
+        equipoinsdustrialFacade.edit(ei);
+        
+        return "NA";
     }
 
     private EquipoinsdustrialFacade lookupEquipoinsdustrialFacadeBean() {

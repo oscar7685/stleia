@@ -99,6 +99,14 @@
                                             </ul>
                                         </li>
                                     </ul>
+                                     <ul class="acc-menu">
+                                        <li><a href="javascript:;"><i class="fa fa-cogs"></i><span>Producto a procesar</span></a>
+                                            <ul class="acc-menu">
+                                                <li><a href="#crearProducto">Crear producto</a></li>
+                                                <li><a href="#listarProducto">Listar productos</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                     <ul class="acc-menu">
                                         <li><a href="javascript:;"><i class="fa fa-bar-chart-o"></i><span>Analytica</span></a>
                                             <ul class="acc-menu">

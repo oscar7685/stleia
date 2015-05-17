@@ -4,9 +4,9 @@
  */
 package com.stleia.actions;
 
-import com.stleia.beans.Equipoinsdustrial;
+import com.stleia.beans.Productoaprocesar;
 import com.stleia.interfaz.Action;
-import com.stleia.sessionbeans.EquipoinsdustrialFacade;
+import com.stleia.sessionbeans.ProductoaprocesarFacade;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,25 +21,24 @@ import javax.servlet.http.HttpSession;
  *
  * @author Usuario
  */
-public class EditarEquipo implements Action {
-
-    EquipoinsdustrialFacade equipoinsdustrialFacade = lookupEquipoinsdustrialFacadeBean();
+public class EditarProducto implements Action {
+    ProductoaprocesarFacade productoaprocesarFacade = lookupProductoaprocesarFacadeBean();
 
     @Override
     public String procesar(HttpServletRequest request) throws IOException, ServletException {
         HttpSession sesion = request.getSession();
         String idEquipo = request.getParameter("id");
-        int idEquipoI = Integer.parseInt(idEquipo);
-        Equipoinsdustrial eq = equipoinsdustrialFacade.find(idEquipoI);
-        sesion.setAttribute("equipo", eq);
+        int idProductoI = Integer.parseInt(idEquipo);
+        Productoaprocesar pro = productoaprocesarFacade.find(idProductoI);
+        sesion.setAttribute("producto", pro);
 
-        return "/WEB-INF/vista/equipos/editar.jsp";
+        return "/WEB-INF/vista/producto/editar.jsp";
     }
 
-    private EquipoinsdustrialFacade lookupEquipoinsdustrialFacadeBean() {
+    private ProductoaprocesarFacade lookupProductoaprocesarFacadeBean() {
         try {
             Context c = new InitialContext();
-            return (EquipoinsdustrialFacade) c.lookup("java:global/stleia/EquipoinsdustrialFacade!com.stleia.sessionbeans.EquipoinsdustrialFacade");
+            return (ProductoaprocesarFacade) c.lookup("java:global/stleia/ProductoaprocesarFacade!com.stleia.sessionbeans.ProductoaprocesarFacade");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

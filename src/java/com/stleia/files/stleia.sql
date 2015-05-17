@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50542
 File Encoding         : 65001
 
-Date: 2015-05-03 23:04:50
+Date: 2015-05-17 16:19:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,14 +25,16 @@ CREATE TABLE `equipoinsdustrial` (
   `tipoequipo` varchar(45) DEFAULT NULL,
   `fechaderegsitro` date NOT NULL,
   PRIMARY KEY (`idequipoinsdustrial`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of equipoinsdustrial
 -- ----------------------------
 INSERT INTO `equipoinsdustrial` VALUES ('1', 'equipo 1', 'Freidora', '2015-02-01');
 INSERT INTO `equipoinsdustrial` VALUES ('2', 'Equipo 2', 'Tanque', '2014-02-01');
-INSERT INTO `equipoinsdustrial` VALUES ('3', 'sadf', 'Freidora', '2010-01-01');
+INSERT INTO `equipoinsdustrial` VALUES ('3', 'Equipo X', 'Freidora', '2012-02-01');
+INSERT INTO `equipoinsdustrial` VALUES ('4', 'Equipo 20', 'Freidora', '2015-01-01');
+INSERT INTO `equipoinsdustrial` VALUES ('5', 'Equipo 21', 'Freidora', '2016-02-01');
 
 -- ----------------------------
 -- Table structure for freidora
@@ -67,13 +69,14 @@ CREATE TABLE `productoaprocesar` (
   `nivelcargar` int(11) NOT NULL,
   `cantidadporhora` int(11) NOT NULL,
   PRIMARY KEY (`idproductoaprocesar`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of productoaprocesar
 -- ----------------------------
 INSERT INTO `productoaprocesar` VALUES ('1', 'croqueta de yuca', '150', '151', '149', '3', '27');
 INSERT INTO `productoaprocesar` VALUES ('2', 'papas francesas', '178', '180', '176', '6', '32');
+INSERT INTO `productoaprocesar` VALUES ('3', 'Papas onduladas', '190', '210', '40', '60', '70');
 
 -- ----------------------------
 -- Table structure for registro

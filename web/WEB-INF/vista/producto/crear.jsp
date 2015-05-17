@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <ol class="breadcrumb">
-    <li><a href="#">Equipos industriales</a></li>
+    <li><a href="#">Producto a procesar</a></li>
     <li class="active"><a href="#">crear</a></li>
 </ol>
 <div class="container-fluid">
@@ -9,62 +9,52 @@
         <div class="col-sm-12">
             <div class="panel panel-midnightblue">
                 <div class="panel-heading">
-                    <h2>Equipo industrial</h2>
+                    <h2>Producto a procesar</h2>
                 </div>
                 <div class="panel-body">
 
                     <form class="form-horizontal" id="fcrear" action="#" data-parsley-validate>
 
                         <div class="form-group">
-                            <label for="nombre" class="col-sm-2 control-label">Nombre equipo</label>
+                            <label for="nombre" class="col-sm-2 control-label">Nombre producto</label>
                             <div class="col-sm-8">
-                                <input type="text" name="nombre" class="form-control" id="nombre" required placeholder="Escribe un nombre para el equipo industrial">
+                                <input type="text" name="nombre" class="form-control" id="nombre" required placeholder="Escribe un nombre para el producto">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="fechar" class="col-sm-2 control-label">Fecha de registro</label>
+                            <label for="tempsp" class="col-sm-2 control-label">Temperatura del SetPoint</label>
                             <div class="col-sm-8">
-                                <input type="text" id="fechar" name="fechar" required class="form-control mask" data-inputmask="'alias': 'date'">
+                                <input type="text" name="tempsp" class="form-control" id="tempsp" required placeholder="Escribe la temperatura del setpoint">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Tipo de equipo</label>
+                            <label for="tempalta" class="col-sm-2 control-label">Temperatura alta</label>
                             <div class="col-sm-8">
-                                <select name="tipoe" class="form-control" required id="tipoe">
-                                    <option value="">Escoja un tipo de equipo</option>
-                                    <option value="Freidora">Freidora</option>
-                                    <option value="Tanque">Tanque</option>
-                                </select>
+                                <input type="text" name="tempalta" class="form-control" id="tempalta" required placeholder="Escribe la temperatura alta">
                             </div>
                         </div>
-                        <div class="form-group tanque">
-                            <label for="capacidad" class="col-sm-2 control-label">Capacidad</label>
+                         <div class="form-group">
+                            <label for="tempbaja" class="col-sm-2 control-label">Temperatura baja</label>
                             <div class="col-sm-8">
-                                <input type="text" name="capacidad" class="form-control" id="capacidad"  placeholder="Escribe la capacidad del tanque">
+                                <input type="text" name="tempbaja" class="form-control" id="tempbaja" required placeholder="Escribe la temperatura baja">
                             </div>
                         </div>
-                        <div class="form-group tanque">
-                            <label for="material" class="col-sm-2 control-label">Material de dise&nacute;o</label>
+                        <div class="form-group">
+                            <label for="nivelcarga" class="col-sm-2 control-label">Nivel de carga</label>
                             <div class="col-sm-8">
-                                <input type="text" name="material" class="form-control" id="material"  placeholder="Escribe el material de diseño">
+                                <input type="text" name="nivelcarga" class="form-control" id="nivelcarga" required placeholder="Escribe el Nivel de aceite necesario">
                             </div>
                         </div>
-                        <div class="form-group freidora">
-                            <label for="potencia" class="col-sm-2 control-label">Potencia</label>
+                        <div class="form-group">
+                            <label for="cantidadxhora" class="col-sm-2 control-label">Cantidad por hora</label>
                             <div class="col-sm-8">
-                                <input type="text" name="potencia" class="form-control" id="potencia"  placeholder="Escribe la potencia de la freidora">
-                            </div>
-                        </div>
-                        <div class="form-group freidora">
-                            <label for="valvula" class="col-sm-2 control-label">Marca valvula de gas</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="valvula" class="form-control" id="valvula"  placeholder="Escribe la marca valvula de gas">
+                                <input type="text" name="cantidadxhora" class="form-control" id="cantidadxhora" required placeholder="Escribe la cantidad de producto que se produce por cada hora">
                             </div>
                         </div>
                         <div class="panel-footer">
                             <div class="row">
                                 <div class="col-sm-8 col-sm-offset-2">
-                                    <button class="btn-primary btn" id="btncrear">Crear equipo</button>
+                                    <button class="btn-primary btn" id="btncrear">Crear producto</button>
                                     <button class="btn-default btn">Cancelar</button>
                                 </div>
                             </div>
@@ -75,11 +65,7 @@
         </div>
     </div>
 </div>
-<script src="<%=request.getContextPath()%>/assets/plugins/form-inputmask/jquery.inputmask.bundle.min.js"></script>  	<!-- Input Masks Plugin -->
-<script type="text/javascript">
-    $(function() {
-        $('.mask').inputmask();
-    });</script>
+
 <script src="<%=request.getContextPath()%>/assets/plugins/form-parsley/parsley.js"></script><!-- Validate Plugin / Parsley -->
 <script>
 // See Docs
@@ -94,24 +80,9 @@
         }
     };
     $(function() {
-        $(".tanque").hide();
-        $(".freidora").hide();
-        $("#tipoe").on('change', function() {
-            if (this.value === 'Freidora') {
-                $(".tanque").hide();
-                $(".freidora").show();
-              } else {
-                if (this.value === 'Tanque') {
-                    $(".freidora").hide();
-                    $(".tanque").show();
-                } else {
-                    $(".freidora").hide();
-                    $(".tanque").hide();
-                }
-            }
-        });
-        var accion = "crearEquipo2";
-        var redireccion = "#listarEquipo";
+       
+        var accion = "crearProducto2";
+        var redireccion = "#listarProducto";
         $('#btncrear').on('click', function() {
             $('#fcrear').parsley().subscribe('parsley:form:validate', function(formInstance) {
 
