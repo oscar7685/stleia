@@ -112,24 +112,24 @@
         var datosT1vsSP;
         var datosT1vsTA, datosT1vsTB, datosAAvsAB;
 
-        $.ajax({
-            type: "POST",
-            url: 'Informes?accion=8',
-            dataType: 'json',
-            success: function(dat)
-            {
-                datosAAvsAB = dat['0']["datos"];
-                Morris.Line({
-                    element: 'line-example8',
-                    data: datosAAvsAB,
-                    xkey: 'y',
-                    ykeys: ['a', 'b'],
-                    labels: ['Alerta Temperatura Alta 1 ', 'Alerta Temperatura Baja 1'],
-                    lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
-                });
-            } //fin success
-        }); //fin del $.ajax
-
+        /*$.ajax({
+         type: "POST",
+         url: 'Informes?accion=8',
+         dataType: 'json',
+         success: function(dat)
+         {
+         datosAAvsAB = dat['0']["datos"];
+         Morris.Line({
+         element: 'line-example8',
+         data: datosAAvsAB,
+         xkey: 'y',
+         ykeys: ['a', 'b'],
+         labels: ['Alerta Temperatura Alta 1 ', 'Alerta Temperatura Baja 1'],
+         lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
+         });
+         } //fin success
+         }); //fin del $.ajax
+         */
         $.ajax({
             type: "POST",
             url: 'Informes?accion=1',

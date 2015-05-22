@@ -100,7 +100,7 @@
                                         </li>
                                     </ul>
                                      <ul class="acc-menu">
-                                        <li><a href="javascript:;"><i class="fa fa-cogs"></i><span>Producto a procesar</span></a>
+                                        <li><a href="javascript:;"><i class="fa fa-tags"></i><span>Producto a procesar</span></a>
                                             <ul class="acc-menu">
                                                 <li><a href="#crearProducto">Crear producto</a></li>
                                                 <li><a href="#listarProducto">Listar productos</a></li>
@@ -112,6 +112,13 @@
                                             <ul class="acc-menu">
                                                 <li><a href="#informes">Informes</a></li>
                                                 <li><a href="#">Otros informes</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="acc-menu">
+                                        <li><a href="javascript:;"><i class="fa fa-line-chart"></i><span>Índice OEE</span></a>
+                                            <ul class="acc-menu">
+                                                <li><a href="#indiceOEE">Calcular Indice OEE</a></li>
                                             </ul>
                                         </li>
                                     </ul>
