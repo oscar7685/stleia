@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -21,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Usuario
+ * @author Ususario
  */
 @Entity
 @Table(name = "registro", catalog = "stleia", schema = "")
@@ -31,16 +30,25 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Registro.findByIdregistro", query = "SELECT r FROM Registro r WHERE r.idregistro = :idregistro"),
     @NamedQuery(name = "Registro.findByFechaderegistro", query = "SELECT r FROM Registro r WHERE r.fechaderegistro = :fechaderegistro"),
     @NamedQuery(name = "Registro.findByHoraderegistro", query = "SELECT r FROM Registro r WHERE r.horaderegistro = :horaderegistro"),
+    @NamedQuery(name = "Registro.findByValvulaentradaestado", query = "SELECT r FROM Registro r WHERE r.valvulaentradaestado = :valvulaentradaestado"),
+    @NamedQuery(name = "Registro.findByValvulasalidaestado", query = "SELECT r FROM Registro r WHERE r.valvulasalidaestado = :valvulasalidaestado"),
+    @NamedQuery(name = "Registro.findByAlarmaacealto", query = "SELECT r FROM Registro r WHERE r.alarmaacealto = :alarmaacealto"),
+    @NamedQuery(name = "Registro.findByAlarmaacemedio", query = "SELECT r FROM Registro r WHERE r.alarmaacemedio = :alarmaacemedio"),
+    @NamedQuery(name = "Registro.findByAlarmaacebaj", query = "SELECT r FROM Registro r WHERE r.alarmaacebaj = :alarmaacebaj"),
     @NamedQuery(name = "Registro.findByCargaraceite", query = "SELECT r FROM Registro r WHERE r.cargaraceite = :cargaraceite"),
     @NamedQuery(name = "Registro.findByLecturanivelaceite", query = "SELECT r FROM Registro r WHERE r.lecturanivelaceite = :lecturanivelaceite"),
     @NamedQuery(name = "Registro.findByTemperaturaactual", query = "SELECT r FROM Registro r WHERE r.temperaturaactual = :temperaturaactual"),
     @NamedQuery(name = "Registro.findByTemperaturasetpoint", query = "SELECT r FROM Registro r WHERE r.temperaturasetpoint = :temperaturasetpoint"),
     @NamedQuery(name = "Registro.findByTempalta", query = "SELECT r FROM Registro r WHERE r.tempalta = :tempalta"),
     @NamedQuery(name = "Registro.findByTemperaturadebaja", query = "SELECT r FROM Registro r WHERE r.temperaturadebaja = :temperaturadebaja"),
+    @NamedQuery(name = "Registro.findByAlarmatempalta", query = "SELECT r FROM Registro r WHERE r.alarmatempalta = :alarmatempalta"),
+    @NamedQuery(name = "Registro.findByAlarmabaja", query = "SELECT r FROM Registro r WHERE r.alarmabaja = :alarmabaja"),
+    @NamedQuery(name = "Registro.findByValvuladegasestado", query = "SELECT r FROM Registro r WHERE r.valvuladegasestado = :valvuladegasestado"),
     @NamedQuery(name = "Registro.findByModoactual", query = "SELECT r FROM Registro r WHERE r.modoactual = :modoactual"),
     @NamedQuery(name = "Registro.findByProductoaprocesarIdproductoaprocesar", query = "SELECT r FROM Registro r WHERE r.productoaprocesarIdproductoaprocesar = :productoaprocesarIdproductoaprocesar"),
     @NamedQuery(name = "Registro.findByFreidoraIdfreidora", query = "SELECT r FROM Registro r WHERE r.freidoraIdfreidora = :freidoraIdfreidora"),
-    @NamedQuery(name = "Registro.findByTanqueIdtanque", query = "SELECT r FROM Registro r WHERE r.tanqueIdtanque = :tanqueIdtanque")})
+    @NamedQuery(name = "Registro.findByTanqueIdtanque", query = "SELECT r FROM Registro r WHERE r.tanqueIdtanque = :tanqueIdtanque"),
+    @NamedQuery(name = "Registro.findByEncendidofreidora", query = "SELECT r FROM Registro r WHERE r.encendidofreidora = :encendidofreidora")})
 public class Registro implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -60,29 +68,29 @@ public class Registro implements Serializable {
     private String horaderegistro;
     @Basic(optional = false)
     @NotNull
-    @Lob
+    @Size(min = 1, max = 3)
     @Column(name = "valvulaentradaestado")
-    private byte[] valvulaentradaestado;
+    private String valvulaentradaestado;
     @Basic(optional = false)
     @NotNull
-    @Lob
+    @Size(min = 1, max = 3)
     @Column(name = "valvulasalidaestado")
-    private byte[] valvulasalidaestado;
+    private String valvulasalidaestado;
     @Basic(optional = false)
     @NotNull
-    @Lob
+    @Size(min = 1, max = 3)
     @Column(name = "alarmaacealto")
-    private byte[] alarmaacealto;
+    private String alarmaacealto;
     @Basic(optional = false)
     @NotNull
-    @Lob
+    @Size(min = 1, max = 3)
     @Column(name = "alarmaacemedio")
-    private byte[] alarmaacemedio;
+    private String alarmaacemedio;
     @Basic(optional = false)
     @NotNull
-    @Lob
+    @Size(min = 1, max = 3)
     @Column(name = "alarmaacebaj")
-    private byte[] alarmaacebaj;
+    private String alarmaacebaj;
     @Basic(optional = false)
     @NotNull
     @Column(name = "cargaraceite")
@@ -109,19 +117,19 @@ public class Registro implements Serializable {
     private double temperaturadebaja;
     @Basic(optional = false)
     @NotNull
-    @Lob
+    @Size(min = 1, max = 3)
     @Column(name = "alarmatempalta")
-    private byte[] alarmatempalta;
+    private String alarmatempalta;
     @Basic(optional = false)
     @NotNull
-    @Lob
+    @Size(min = 1, max = 3)
     @Column(name = "alarmabaja")
-    private byte[] alarmabaja;
+    private String alarmabaja;
     @Basic(optional = false)
     @NotNull
-    @Lob
+    @Size(min = 1, max = 3)
     @Column(name = "valvuladegasestado")
-    private byte[] valvuladegasestado;
+    private String valvuladegasestado;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -141,9 +149,9 @@ public class Registro implements Serializable {
     private int tanqueIdtanque;
     @Basic(optional = false)
     @NotNull
-    @Lob
+    @Size(min = 1, max = 3)
     @Column(name = "encendidofreidora")
-    private byte[] encendidofreidora;
+    private String encendidofreidora;
 
     public Registro() {
     }
@@ -152,7 +160,7 @@ public class Registro implements Serializable {
         this.idregistro = idregistro;
     }
 
-    public Registro(Integer idregistro, String fechaderegistro, String horaderegistro, byte[] valvulaentradaestado, byte[] valvulasalidaestado, byte[] alarmaacealto, byte[] alarmaacemedio, byte[] alarmaacebaj, double cargaraceite, double lecturanivelaceite, double temperaturaactual, double temperaturasetpoint, double tempalta, double temperaturadebaja, byte[] alarmatempalta, byte[] alarmabaja, byte[] valvuladegasestado, String modoactual, int productoaprocesarIdproductoaprocesar, int freidoraIdfreidora, int tanqueIdtanque, byte[] encendidofreidora) {
+    public Registro(Integer idregistro, String fechaderegistro, String horaderegistro, String valvulaentradaestado, String valvulasalidaestado, String alarmaacealto, String alarmaacemedio, String alarmaacebaj, double cargaraceite, double lecturanivelaceite, double temperaturaactual, double temperaturasetpoint, double tempalta, double temperaturadebaja, String alarmatempalta, String alarmabaja, String valvuladegasestado, String modoactual, int productoaprocesarIdproductoaprocesar, int freidoraIdfreidora, int tanqueIdtanque, String encendidofreidora) {
         this.idregistro = idregistro;
         this.fechaderegistro = fechaderegistro;
         this.horaderegistro = horaderegistro;
@@ -201,43 +209,43 @@ public class Registro implements Serializable {
         this.horaderegistro = horaderegistro;
     }
 
-    public byte[] getValvulaentradaestado() {
+    public String getValvulaentradaestado() {
         return valvulaentradaestado;
     }
 
-    public void setValvulaentradaestado(byte[] valvulaentradaestado) {
+    public void setValvulaentradaestado(String valvulaentradaestado) {
         this.valvulaentradaestado = valvulaentradaestado;
     }
 
-    public byte[] getValvulasalidaestado() {
+    public String getValvulasalidaestado() {
         return valvulasalidaestado;
     }
 
-    public void setValvulasalidaestado(byte[] valvulasalidaestado) {
+    public void setValvulasalidaestado(String valvulasalidaestado) {
         this.valvulasalidaestado = valvulasalidaestado;
     }
 
-    public byte[] getAlarmaacealto() {
+    public String getAlarmaacealto() {
         return alarmaacealto;
     }
 
-    public void setAlarmaacealto(byte[] alarmaacealto) {
+    public void setAlarmaacealto(String alarmaacealto) {
         this.alarmaacealto = alarmaacealto;
     }
 
-    public byte[] getAlarmaacemedio() {
+    public String getAlarmaacemedio() {
         return alarmaacemedio;
     }
 
-    public void setAlarmaacemedio(byte[] alarmaacemedio) {
+    public void setAlarmaacemedio(String alarmaacemedio) {
         this.alarmaacemedio = alarmaacemedio;
     }
 
-    public byte[] getAlarmaacebaj() {
+    public String getAlarmaacebaj() {
         return alarmaacebaj;
     }
 
-    public void setAlarmaacebaj(byte[] alarmaacebaj) {
+    public void setAlarmaacebaj(String alarmaacebaj) {
         this.alarmaacebaj = alarmaacebaj;
     }
 
@@ -289,27 +297,27 @@ public class Registro implements Serializable {
         this.temperaturadebaja = temperaturadebaja;
     }
 
-    public byte[] getAlarmatempalta() {
+    public String getAlarmatempalta() {
         return alarmatempalta;
     }
 
-    public void setAlarmatempalta(byte[] alarmatempalta) {
+    public void setAlarmatempalta(String alarmatempalta) {
         this.alarmatempalta = alarmatempalta;
     }
 
-    public byte[] getAlarmabaja() {
+    public String getAlarmabaja() {
         return alarmabaja;
     }
 
-    public void setAlarmabaja(byte[] alarmabaja) {
+    public void setAlarmabaja(String alarmabaja) {
         this.alarmabaja = alarmabaja;
     }
 
-    public byte[] getValvuladegasestado() {
+    public String getValvuladegasestado() {
         return valvuladegasestado;
     }
 
-    public void setValvuladegasestado(byte[] valvuladegasestado) {
+    public void setValvuladegasestado(String valvuladegasestado) {
         this.valvuladegasestado = valvuladegasestado;
     }
 
@@ -345,11 +353,11 @@ public class Registro implements Serializable {
         this.tanqueIdtanque = tanqueIdtanque;
     }
 
-    public byte[] getEncendidofreidora() {
+    public String getEncendidofreidora() {
         return encendidofreidora;
     }
 
-    public void setEncendidofreidora(byte[] encendidofreidora) {
+    public void setEncendidofreidora(String encendidofreidora) {
         this.encendidofreidora = encendidofreidora;
     }
 

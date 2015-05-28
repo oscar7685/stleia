@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
  * @author Oscar
  */
 public class Login extends HttpServlet {
+
     @EJB
     private RegistroFacade registroFacade;
     @EJB
@@ -42,21 +43,29 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
-        
+
         try {
-            String usuario = request.getParameter("parametroA");
-            String pass = request.getParameter("parametroB");
-            String tipoIngreso = request.getParameter("parametroC");
-            Usuarios u = usuariosFacade.find(Integer.parseInt(usuario));
-            
-            if (u != null && u.getPassword().equals(pass) && u.getRol().equals(tipoIngreso)) {
-                session.setAttribute("Usuario", "Admin");
-                String url = "/WEB-INF/vista/index.jsp";
-                RequestDispatcher rd = request.getRequestDispatcher(url);
-                rd.forward(request, response);
+            String action = request.getParameter("action");
+
+            if (action != null && action.equals("CerrarSesion")) {
+                request.getSession().invalidate();
             } else {
-                System.out.println("ERROR de Login!!!");
+                String usuario = request.getParameter("parametroA");
+                String pass = request.getParameter("parametroB");
+                String tipoIngreso = request.getParameter("parametroC");
+                Usuarios u = usuariosFacade.find(Integer.parseInt(usuario));
+
+                if (u != null && u.getPassword().equals(pass) && u.getRol().equals(tipoIngreso)) {
+                session.setAttribute("Usuario", "Admin");
+                    String url = "/WEB-INF/vista/index.jsp";
+                    RequestDispatcher rd = request.getRequestDispatcher(url);
+                    rd.forward(request, response);
+                } else {
+                    System.out.println("ERROR de Login!!!");
+                }
             }
+
+
         } finally {
             out.close();
         }

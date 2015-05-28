@@ -65,7 +65,7 @@
                             <div class="row">
                                 <div class="col-sm-8 col-sm-offset-2">
                                     <button class="btn-primary btn" id="btncrear">Crear equipo</button>
-                                    <button class="btn-default btn">Cancelar</button>
+                                    <button class="btn-default btn" type="reset">Cancelar</button>
                                 </div>
                             </div>
                         </div>

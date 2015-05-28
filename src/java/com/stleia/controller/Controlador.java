@@ -34,16 +34,20 @@ public class Controlador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-         try {
+        try {
             ResourceBundle rb = ResourceBundle.getBundle("com/stleia/propiedades/actions");
             String action = request.getParameter("action");
             String clase = rb.getString(action);
             Action objeto = (Action) Class.forName(clase).newInstance();
             String ruta = objeto.procesar(request);
-            if (!ruta.equals("NA")) {
+            if (!ruta.equals("NA") && !ruta.contains(",")) {
                 RequestDispatcher rd = request.getRequestDispatcher(ruta);
                 rd.forward(request, response);
+            } else if (!ruta.equals("NA") && ruta.contains(",")) {
+                out.print(ruta);
             }
+
+
 
         } catch (Exception e) {
             System.out.println("Error " + e);

@@ -34,18 +34,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2>NIVEL DE ACEITE TANQUE 1 VS NIVEL DE ACEITE TANQUE 2</h2>
-                </div>
-                <div class="panel-body">
-                    <div id="line-example4"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -82,18 +71,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2>ALARMAS TEMPERATURA ALTA Y BAJA</h2>
-                </div>
-                <div class="panel-body">
-                    <div id="line-example8"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
 
 </div> <!-- .container-fluid -->
@@ -184,23 +162,7 @@
             } //fin success
         }); //fin del $.ajax
 
-        $.ajax({
-            type: "POST",
-            url: 'Informes?accion=4',
-            dataType: 'json',
-            success: function(dat)
-            {
-                datosAF1vsAF2 = dat['0']["datos"];
-                Morris.Line({
-                    element: 'line-example4',
-                    data: datosAF1vsAF2,
-                    xkey: 'y',
-                    ykeys: ['a', 'b'],
-                    labels: ['Nivel Aceite Tanque 1 ', 'Nivel Aceite Tanque 2 '],
-                    lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
-                });
-            } //fin success
-        }); //fin del $.ajax
+    
 
 
         $.ajax({

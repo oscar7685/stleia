@@ -21,9 +21,9 @@
         <link href="<%=request.getContextPath()%>/assets/fonts/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">        <!-- Font Awesome -->
         <link href="<%=request.getContextPath()%>/assets/css/styles.css" type="text/css" rel="stylesheet">                                     <!-- Core CSS with all styles -->
 
-       <!-- <link href="assets/plugins/jstree/dist/themes/avalon/style.min.css" type="text/css" rel="stylesheet">    <!-- jsTree -->
-       <!-- <link href="assets/plugins/codeprettifier/prettify.css" type="text/css" rel="stylesheet">                <!-- Code Prettifier -->
-       <!-- <link href="assets/plugins/iCheck/skins/minimal/blue.css" type="text/css" rel="stylesheet">              <!-- iCheck -->
+        <!-- <link href="assets/plugins/jstree/dist/themes/avalon/style.min.css" type="text/css" rel="stylesheet">    <!-- jsTree -->
+        <!-- <link href="assets/plugins/codeprettifier/prettify.css" type="text/css" rel="stylesheet">                <!-- Code Prettifier -->
+        <!-- <link href="assets/plugins/iCheck/skins/minimal/blue.css" type="text/css" rel="stylesheet">              <!-- iCheck -->
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
         <!--[if lt IE 9]>
@@ -57,9 +57,7 @@
 
                     </a>
                     <ul class="dropdown-menu userinfo">
-                        <li><a href="#"><span class="pull-left">Cambiar contrase&nacute;a</span> <i class="pull-right fa fa-pencil"></i></a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><span class="pull-left">Cerrar sesi&oacute;n</span> <i class="pull-right fa fa-sign-out"></i></a></li>
+                        <li><a href="#cerrarSesion"><span class="pull-left">Cerrar sesi&oacute;n</span> <i class="pull-right fa fa-sign-out"></i></a></li>
                     </ul>
                 </li>
 
@@ -99,7 +97,7 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                     <ul class="acc-menu">
+                                    <ul class="acc-menu">
                                         <li><a href="javascript:;"><i class="fa fa-tags"></i><span>Producto a procesar</span></a>
                                             <ul class="acc-menu">
                                                 <li><a href="#crearProducto">Crear producto</a></li>
@@ -110,8 +108,9 @@
                                     <ul class="acc-menu">
                                         <li><a href="javascript:;"><i class="fa fa-bar-chart-o"></i><span>Analytica</span></a>
                                             <ul class="acc-menu">
-                                                <li><a href="#informes">Informes</a></li>
-                                                <li><a href="#">Otros informes</a></li>
+                                                <li><a href="#informes">Informes Temperatura</a></li>
+                                                <li><a href="#informesAceite">Informes Aceite</a></li>
+                                                <li><a href="#informesAlarmas">Informes Alarmas</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -131,7 +130,7 @@
                 <div class="static-content-wrapper">
                     <div class="static-content">
                         <div class="page-content">
-                        
+
                         </div> <!-- #page-content -->
                     </div>
                     <footer role="contentinfo">
@@ -179,9 +178,9 @@
         <!--<script src="assets/plugins/simpleWeather/jquery.simpleWeather.min.js"></script> <!-- Weather plugin-->
 
         <script src="<%=request.getContextPath()%>/assets/js/application.js"></script>
-             <script src="<%=request.getContextPath()%>/assets/js/jquery.hashchange.min.js"></script> <!-- hashchange-->
+        <script src="<%=request.getContextPath()%>/assets/js/jquery.hashchange.min.js"></script> <!-- hashchange-->
         <script src="<%=request.getContextPath()%>/assets/js/mijs.js"></script>
-       <!-- <script src="assets/demo/demo.js"></script>-->
+        <!-- <script src="assets/demo/demo.js"></script>-->
 
 
 
@@ -189,8 +188,8 @@
 
         <!-- Load page level scripts-->
 
-      
-        
+
+
         <!-- End loading page level scripts-->
 
     </body>
