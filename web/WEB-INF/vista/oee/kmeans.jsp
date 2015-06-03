@@ -9,16 +9,15 @@
 </style>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-
 <ol class="breadcrumb">
-    <li class="active"><a href="#">Indice de eficiencia general de equipos</a></li>
+    <li class="active"><a href="#">Kmeans aplicado al Indice OEE</a></li>
 </ol>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-midnightblue">
                 <div class="panel-heading">
-                    <h2>Indice OEE</h2>
+                    <h2>Kmeans aplicado al Indice OEE</h2>
                 </div>
                 <div class="panel-body">
                     <p><b>OEE = Disponibilidad x Rendimiento x Calidad</b></p>
@@ -26,7 +25,7 @@
                     <p>Rendimiento = Produccion Total/Produccion Prevista</p>
                     <p>Calidad = Piezas Buenas Total / Producción Total</p>
                     <br/>
-                    <form name="formularioOEE" id="formularioOEE" action="#">
+                    <form name="formularioKmeans" id="formularioKmeans" action="#">
                         Desde
                         <select class="form-control" id="desdeF" name="desdeF">
                             <option value="19/03/2015">19/03/2015</option>
@@ -98,61 +97,16 @@
                             <option value="23:00:00">11:00pm</option>
                         </select>
                         <br/>
-                        <button type="button" class="btn btn-primary" id="calcularIndices">Calcular Indice OEE de las freidoras</button>
+                        <button type="button" class="btn btn-primary" id="calcularKmeans2">Kmeans K=2</button>
+                        <button type="button" class="btn btn-primary" id="calcularKmeans3">Kmeans K=3</button>
+                        <button type="button" class="btn btn-primary" id="calcularKmeans4">Kmeans K=4</button>
                     </form>
 
-                    <div>
-                        <img src="<%=request.getContextPath()%>/assets/img/oee/1.jpg">  
-                        <img src="<%=request.getContextPath()%>/assets/img/oee/2.jpg">  
-                        <img src="<%=request.getContextPath()%>/assets/img/oee/3.jpg">
-                    </div>
-                    <div id="resultados3" class="col-sm-6" >
-                        <h2> Freidora 2</h2>
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Disponibilidad</th>
-                                    <td id="dis1"></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Rendimiento</th>
-                                    <td id="ren1"></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Calidad</th>
-                                    <td id="cal1"></td>
-                                </tr> 
-                                <tr>
-                                    <th scope="row">OEE</th>
-                                    <td id="oee1"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div id="resultados3" style="height:400px; overflow: scroll;">
+                        <h2> Freidora 1</h2>
+
                     </div>
 
-                    <div id="resultados4" class="col-sm-6" >
-                        <h2> Freidora 1</h2>
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Disponibilidad</th>
-                                    <td id="dis2"></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Rendimiento</th>
-                                    <td id="ren2"></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Calidad</th>
-                                    <td id="cal2"></td>
-                                </tr> 
-                                <tr>
-                                    <th scope="row">OEE</th>
-                                    <td id="oee2"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
 
             </div>
@@ -162,29 +116,40 @@
 <script type="text/javascript">
     var valores;
     $(function() {
-        $("#calcularIndices").click(function() {
+        $("#calcularKmeans2").click(function() {
 
             $.ajax({
                 type: "POST",
-                url: "Controlador?action=calcularTiempo",
-                data: $("#formularioOEE").serialize(),
+                url: "Controlador?action=calcularKmeans&cluster=2",
+                data: $("#formularioKmeans").serialize(),
                 success: function(data)
                 {
-                    valores = data.split(",");
+                    $("#resultados3").html(data);
 
+                } //fin success
+            }); //fin del $.ajax
+        });
+        $("#calcularKmeans3").click(function() {
 
-                    $("#dis1").html("<b>" + valores[1] + "/" + valores[0] + "<b>");
-                    $("#ren1").html("<b>" + (valores[1] * 115) + "/" + (valores[0] * 120) + "<b>");
-                    $("#cal1").html("<b> " + (valores[1] * 115) * 0.95 + "/" + (valores[1] * 115) + "<b>");
-                    $("#oee1").html("<b>" + (valores[1] / valores[0]) * ((valores[1] * 115) / (valores[0] * 120)) * ((valores[1] * 115) * 0.95 / (valores[1] * 115)) + "<b>");
+            $.ajax({
+                type: "POST",
+                url: "Controlador?action=calcularKmeans&cluster=3",
+                data: $("#formularioKmeans").serialize(),
+                success: function(data)
+                {
+                    $("#resultados3").html(data);
+                } //fin success
+            }); //fin del $.ajax
+        });
+        $("#calcularKmeans4").click(function() {
 
-
-                    $("#dis2").html("<b>" + valores[1] + "/" + valores[0] + "<b>");
-                    $("#ren2").html("<b>" + (valores[1] * 65) + "/" + (valores[0] * 70) + "<b>");
-                    $("#cal2").html("<b>" + (valores[1] * 65) * 0.95 + "/" + (valores[1] * 70) + "<b>");
-                    $("#oee2").html("<b>" + (valores[1] / valores[0]) * ((valores[1] * 65) / (valores[0] * 70)) * ((valores[1] * 65) * 0.95 / (valores[1] * 65)) + "<b>");
-
-
+            $.ajax({
+                type: "POST",
+                url: "Controlador?action=calcularKmeans&cluster=4",
+                data: $("#formularioKmeans").serialize(),
+                success: function(data)
+                {
+                    $("#resultados3").html(data);
                 } //fin success
             }); //fin del $.ajax
         });

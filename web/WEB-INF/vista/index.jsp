@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -89,22 +90,27 @@
 
                             <div class="widget stay-on-collapse" id="widget-sidebar">
                                 <nav role="navigation" class="widget-body">
-                                    <ul class="acc-menu">
-                                        <li><a href="javascript:;"><i class="fa fa-cogs"></i><span>Equipos industriales</span></a>
+                                    <c:choose>
+                                        <c:when test="${TipoUsuario == 'Ingeniero de Planta'}">
                                             <ul class="acc-menu">
-                                                <li><a href="#crearEquipo">Crear equipos</a></li>
-                                                <li><a href="#listarEquipo">Listar equipos</a></li>
+                                                <li><a href="javascript:;"><i class="fa fa-cogs"></i><span>Equipos industriales</span></a>
+                                                    <ul class="acc-menu">
+                                                        <li><a href="#crearEquipo">Crear equipos</a></li>
+                                                        <li><a href="#listarEquipo">Listar equipos</a></li>
+                                                    </ul>
+                                                </li>
                                             </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="acc-menu">
-                                        <li><a href="javascript:;"><i class="fa fa-tags"></i><span>Producto a procesar</span></a>
                                             <ul class="acc-menu">
-                                                <li><a href="#crearProducto">Crear producto</a></li>
-                                                <li><a href="#listarProducto">Listar productos</a></li>
+                                                <li><a href="javascript:;"><i class="fa fa-tags"></i><span>Producto a procesar</span></a>
+                                                    <ul class="acc-menu">
+                                                        <li><a href="#crearProducto">Crear producto</a></li>
+                                                        <li><a href="#listarProducto">Listar productos</a></li>
+                                                    </ul>
+                                                </li>
                                             </ul>
-                                        </li>
-                                    </ul>
+                                        </c:when> 
+                                    </c:choose>
+
                                     <ul class="acc-menu">
                                         <li><a href="javascript:;"><i class="fa fa-bar-chart-o"></i><span>Analytica</span></a>
                                             <ul class="acc-menu">
@@ -118,6 +124,7 @@
                                         <li><a href="javascript:;"><i class="fa fa-line-chart"></i><span>Índice OEE</span></a>
                                             <ul class="acc-menu">
                                                 <li><a href="#indiceOEE">Calcular Indice OEE</a></li>
+                                                <li><a href="#KmeansOEE">Aplicación del K-means OEE</a></li>
                                             </ul>
                                         </li>
                                     </ul>

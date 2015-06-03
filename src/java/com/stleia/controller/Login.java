@@ -56,7 +56,8 @@ public class Login extends HttpServlet {
                 Usuarios u = usuariosFacade.find(Integer.parseInt(usuario));
 
                 if (u != null && u.getPassword().equals(pass) && u.getRol().equals(tipoIngreso)) {
-                session.setAttribute("Usuario", "Admin");
+                    session.setAttribute("Usuario", "Admin");
+                    session.setAttribute("TipoUsuario", "" + tipoIngreso);
                     String url = "/WEB-INF/vista/index.jsp";
                     RequestDispatcher rd = request.getRequestDispatcher(url);
                     rd.forward(request, response);
