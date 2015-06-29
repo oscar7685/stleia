@@ -26,6 +26,15 @@
                     <p>Rendimiento = Produccion Total/Produccion Prevista</p>
                     <p>Calidad = Piezas Buenas Total / Producción Total</p>
                     <br/>
+                    <strong>El resultado de este indicador se puede dividir en distintos niveles, a nivel académico:</strong>
+                    <ul>
+                        <li>OEE < 65% Inaceptable. Se producen importantes pérdidas económicas. Muy baja competitividad.</li>
+                        <li>65% < OEE < 75% Regular. Aceptable sólo si se está en proceso de mejora. Pérdidas económicas. Baja competitividad.</li>
+                        <li>75% < OEE < 85% Aceptable. Continuar la mejora para superar el 85 % y avanzar hacia la World Class. Ligeras pérdidas económicas. Competitividad ligeramente baja.</li>
+                        <li>85% < OEE < 95% Buena. Entra en Valores World Class. Buena competitividad.</li>
+                        <li>OEE > 95% Excelencia. Valores World Class. Excelente competitividad</li>
+                    </ul>
+
                     <form name="formularioOEE" id="formularioOEE" action="#">
                         Desde
                         <select class="form-control" id="desdeF" name="desdeF">
@@ -101,11 +110,6 @@
                         <button type="button" class="btn btn-primary" id="calcularIndices">Calcular Indice OEE de las freidoras</button>
                     </form>
 
-                    <div>
-                        <img src="<%=request.getContextPath()%>/assets/img/oee/1.jpg">  
-                        <img src="<%=request.getContextPath()%>/assets/img/oee/2.jpg">  
-                        <img src="<%=request.getContextPath()%>/assets/img/oee/3.jpg">
-                    </div>
                     <div id="resultados3" class="col-sm-6" >
                         <h2> Freidora 2</h2>
                         <table class="table">
@@ -152,6 +156,11 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div>
+                        <img width="32%" src="<%=request.getContextPath()%>/assets/img/oee/1.jpg">  
+                        <img width="32%" src="<%=request.getContextPath()%>/assets/img/oee/2.jpg">  
+                        <img width="32%" src="<%=request.getContextPath()%>/assets/img/oee/3.jpg">
                     </div>
                 </div>
 

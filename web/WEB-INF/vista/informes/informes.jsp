@@ -39,7 +39,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2>TEMPERATURA FREIDORA 2 VS SETPOINT</h2>
+                    <h2>TEMPERATURA FREIDORA 2 VS SETPOINT PROGRAMADO</h2>
                 </div>
                 <div class="panel-body">
                     <div id="line-example5"></div>

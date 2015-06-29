@@ -101,11 +101,13 @@
                         <button type="button" class="btn btn-primary" id="calcularKmeans3">Kmeans K=3</button>
                         <button type="button" class="btn btn-primary" id="calcularKmeans4">Kmeans K=4</button>
                     </form>
-
-                    <div id="resultados3" style="height:400px; overflow: scroll;">
-                        <h2> Freidora 1</h2>
-
+                    <div>
+                        <div id="resultados4" class="col-md-6" style="height:400px; overflow: scroll;">
+                        </div>
+                        <div id="resultados3" class="col-md-6" style="height:400px; overflow: scroll;">
+                        </div>
                     </div>
+
 
                 </div>
 
@@ -128,6 +130,17 @@
 
                 } //fin success
             }); //fin del $.ajax
+            $.ajax({
+                type: "POST",
+                url: "Controlador?action=calcularKmeans2&cluster=2",
+                data: $("#formularioKmeans").serialize(),
+                success: function(data)
+                {
+                    $("#resultados4").html(data);
+
+                } //fin success
+            }); //fin del $.ajax
+
         });
         $("#calcularKmeans3").click(function() {
 
@@ -140,6 +153,15 @@
                     $("#resultados3").html(data);
                 } //fin success
             }); //fin del $.ajax
+            $.ajax({
+                type: "POST",
+                url: "Controlador?action=calcularKmeans2&cluster=3",
+                data: $("#formularioKmeans").serialize(),
+                success: function(data)
+                {
+                    $("#resultados4").html(data);
+                } //fin success
+            }); //fin del $.ajax
         });
         $("#calcularKmeans4").click(function() {
 
@@ -150,6 +172,15 @@
                 success: function(data)
                 {
                     $("#resultados3").html(data);
+                } //fin success
+            }); //fin del $.ajax
+            $.ajax({
+                type: "POST",
+                url: "Controlador?action=calcularKmeans2&cluster=4",
+                data: $("#formularioKmeans").serialize(),
+                success: function(data)
+                {
+                    $("#resultados4").html(data);
                 } //fin success
             }); //fin del $.ajax
         });

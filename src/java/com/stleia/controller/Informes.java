@@ -27,15 +27,15 @@ public class Informes extends HttpServlet {
     private RegistroFacade registroFacade;
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP
+     * <code>GET</code> and
+     * <code>POST</code> methods.
      *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");
@@ -235,7 +235,7 @@ public class Informes extends HttpServlet {
 
             try {
                 for (int i = 0; i < registros.size(); i++) {
-                    
+
                     String aux5 = ""
                             + "{"
                             + "\"y\": \"2015-03-" + registros.get(i).getFechaderegistro().split("/")[0] + " " + registros.get(i).getHoraderegistro()
@@ -252,16 +252,43 @@ public class Informes extends HttpServlet {
 
                 out.println("[" + aux4 + "]");
 
+
+
+
+
+            } finally {
+                out.close();
+            }
+        } else if (accion != null && accion.equals("9")) {
+            List<Registro> registros2 = registroFacade.findByList("freidoraIdfreidora", Integer.parseInt("2"));
+            String aux42 = "{ \"datos\":[";
+            try {
+                for (int i = 0; i < registros2.size(); i++) {
+                    String aux5 = ""
+                            + "{"
+                            + "\"y\": \"2015-03-" + registros2.get(i).getFechaderegistro().split("/")[0] + " " + registros2.get(i).getHoraderegistro()
+                            + "\" ," + " \"a\": \"" + registros2.get(i).getAlarmatempalta()
+                            + "\" ," + " \"b\": \"" + registros2.get(i).getAlarmabaja()
+                            + "\""
+                            + "},"
+                            + "";
+                    aux42 += aux5;
+                }
+
+                aux42 = aux42.substring(0, aux42.length() - 1);
+                aux42 += "]}";
+
+                out.println("[" + aux42 + "]");
             } finally {
                 out.close();
             }
         }
-
     }
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP <code>GET</code> method.
+     * Handles the HTTP
+     * <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -275,7 +302,8 @@ public class Informes extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
+     * Handles the HTTP
+     * <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response

@@ -6,7 +6,10 @@
                     <h2>ALARMAS TEMPERATURA ALTA Y BAJA</h2>
                 </div>
                 <div class="panel-body">
+                     <h3>ALARMAS TEMPERATURA ALTA Y BAJA FREIDORA 1</h3>
                     <div id="line-example8"></div>
+                    <h3>ALARMAS TEMPERATURA ALTA Y BAJA FREIDORA 2</h3>
+                    <div id="line-example9"></div>
                 </div>
             </div>
         </div>
@@ -47,7 +50,25 @@
                 });
             } //fin success
         }); //fin del $.ajax
-
+        
+        
+        $.ajax({
+            type: "POST",
+            url: 'Informes?accion=9',
+            dataType: 'json',
+            success: function(dat)
+            {
+                datosAAvsAB = dat['0']["datos"];
+                Morris.Line({
+                    element: 'line-example9',
+                    data: datosAAvsAB,
+                    xkey: 'y',
+                    ykeys: ['a', 'b'],
+                    labels: ['Alerta Temperatura Alta 1 ', 'Alerta Temperatura Baja 1'],
+                    lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
+                });
+            } //fin success
+        }); //fin del $.ajax
     });
 
 

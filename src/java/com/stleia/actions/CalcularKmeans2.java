@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author Ususario
  */
-public class CalcularKmeans implements Action {
+public class CalcularKmeans2 implements Action {
 
     @Override
     public String procesar(HttpServletRequest request) throws IOException, ServletException {
@@ -84,11 +84,11 @@ public class CalcularKmeans implements Action {
             Disponibilidad = valores[0] / valores[1];
 
             Random r2 = new Random();
-            int Low1 = 60;
-            int High1 = 75;
+            int Low1 = 90;
+            int High1 = 125;
             int R2 = r2.nextInt(High1 - Low1) + Low1;
 
-            Rendimiento = (valores[0] * R2) / (valores[0] * 70);
+            Rendimiento = (valores[0] * R2) / (valores[0] * 120);
             Random r = new Random();
             int Low = 50;
             int High = 100;
@@ -110,7 +110,7 @@ public class CalcularKmeans implements Action {
             Vector tempV = v[i];
 
 
-            datos +="<h2>Freidora 2</h2>";  
+            datos +="<h2>Freidora 1</h2>";
             datos += "<table class='table'>"
                     + "<thead>"
                     + "<tr><th style='text-align: center;' colspan='3'>Cluster, " + (i + 1) + "</th></tr>"
