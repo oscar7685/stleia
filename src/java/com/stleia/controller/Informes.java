@@ -177,6 +177,32 @@ public class Informes extends HttpServlet {
                 out.close();
             }
         } else if (accion != null && accion.equals("6")) {
+            List<Registro> registros = registroFacade.findByList("freidoraIdfreidora", Integer.parseInt("2"));
+            //String aux4 = "{ \"datos\":[";
+            String aux4 = "{ \"datos\":[";
+
+            try {
+                for (int i = 0; i < registros.size(); i++) {
+                    String aux5 = ""
+                            + "{"
+                            + "\"y\": \"2015-03-" + registros.get(i).getFechaderegistro().split("/")[0] + " " + registros.get(i).getHoraderegistro()
+                            + "\" ," + " \"a\": \"" + registros.get(i).getTemperaturaactual()
+                            + "\" ," + " \"b\": \"" + registros.get(i).getTempalta()
+                            + "\""
+                            + "},"
+                            + "";
+                    aux4 += aux5;
+
+                }
+                aux4 = aux4.substring(0, aux4.length() - 1);
+                aux4 += "]}";
+
+                out.println("[" + aux4 + "]");
+
+            } finally {
+                out.close();
+            }
+        } else if (accion != null && accion.equals("20")) {
             List<Registro> registros = registroFacade.findByList("freidoraIdfreidora", Integer.parseInt("1"));
             //String aux4 = "{ \"datos\":[";
             String aux4 = "{ \"datos\":[";
@@ -203,6 +229,32 @@ public class Informes extends HttpServlet {
                 out.close();
             }
         } else if (accion != null && accion.equals("7")) {
+            List<Registro> registros = registroFacade.findByList("freidoraIdfreidora", Integer.parseInt("2"));
+            //String aux4 = "{ \"datos\":[";
+            String aux4 = "{ \"datos\":[";
+
+            try {
+                for (int i = 0; i < registros.size(); i++) {
+                    String aux5 = ""
+                            + "{"
+                            + "\"y\": \"2015-03-" + registros.get(i).getFechaderegistro().split("/")[0] + " " + registros.get(i).getHoraderegistro()
+                            + "\" ," + " \"a\": \"" + registros.get(i).getTemperaturaactual()
+                            + "\" ," + " \"b\": \"" + registros.get(i).getTemperaturadebaja()
+                            + "\""
+                            + "},"
+                            + "";
+                    aux4 += aux5;
+
+                }
+                aux4 = aux4.substring(0, aux4.length() - 1);
+                aux4 += "]}";
+
+                out.println("[" + aux4 + "]");
+
+            } finally {
+                out.close();
+            }
+        } else if (accion != null && accion.equals("21")) {
             List<Registro> registros = registroFacade.findByList("freidoraIdfreidora", Integer.parseInt("1"));
             //String aux4 = "{ \"datos\":[";
             String aux4 = "{ \"datos\":[";
@@ -228,7 +280,7 @@ public class Informes extends HttpServlet {
             } finally {
                 out.close();
             }
-        } else if (accion != null && accion.equals("8")) {
+        }else if (accion != null && accion.equals("8")) {
             List<Registro> registros = registroFacade.findByList("freidoraIdfreidora", Integer.parseInt("1"));
             //String aux4 = "{ \"datos\":[";
             String aux4 = "{ \"datos\":[";

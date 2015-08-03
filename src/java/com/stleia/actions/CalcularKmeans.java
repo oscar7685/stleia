@@ -110,7 +110,7 @@ public class CalcularKmeans implements Action {
             Vector tempV = v[i];
 
 
-            datos +="<h2>Freidora 2</h2>";  
+            datos += "<h2>Freidora 2</h2>";
             datos += "<table class='table'>"
                     + "<thead>"
                     + "<tr><th style='text-align: center;' colspan='3'>Cluster, " + (i + 1) + "</th></tr>"
@@ -118,6 +118,7 @@ public class CalcularKmeans implements Action {
                     + "<th>Disponibilidad</th> "
                     + "<th>Rendimiento</th>"
                     + "<th>Calidad</th>"
+                    + "<th>Indice OEE</th>"
                     + "</tr>"
                     + "</thead>"
                     + "<tbody>";
@@ -129,7 +130,8 @@ public class CalcularKmeans implements Action {
                 double x = Math.round(dpTemp.getX() * 100.0) / 100.0;
                 double y = Math.round(dpTemp.getY() * 100.0) / 100.0;
                 double z = Math.round(dpTemp.getZ() * 100.0) / 100.0;
-                datos += "<tr><td>" + x + "</td><td>" + y + "</td><td>" + z + "</td></tr>";
+                double indiceOEE = Math.round((x * y * z) * 100.0) / 100.0;
+                datos += "<tr><td>" + x + "</td><td>" + y + "</td><td>" + z + "<td>" + indiceOEE + "</td></tr>";
             }
             datos += "</tbody></table>";
         }

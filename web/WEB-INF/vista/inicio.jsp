@@ -17,17 +17,17 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="assets/demo/avatar/saad.png" alt="" class="avatar pull-left" style="margin: 0 20px 20px 0">
+                                <img src="assets/demo/avatar/user.png" alt="" class="avatar pull-left" style="margin: 0 20px 20px 0">
                                 <div class="table-responsive table-userinfo">
-                                    <h3 class="mt0">Saad Bittar</h3><table class="table table-condensed">
+                                    <h3 class="mt0">${user.nombre} ${user.apellido}</h3><table class="table table-condensed">
                                         <tbody>
                                             <tr>
                                                 <td>Web</td>
-                                                <td><a href="#">www.saad.com</a></td>
+                                                <td><a href="#">www.${user.nombre}.com</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Correo</td>
-                                                <td><a href="">saad@gmail.com</a></td>
+                                                <td><a href="">${user.nombre}@gmail.com</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Telefono</td>
@@ -55,10 +55,7 @@
                             <div class="col-md-6">
                                 <h3 class="mt0">Acerca de</h3>
                                 <p>
-                                    Soy un estudiante de ingenieria de sistemas que esta a punto de tomar grado
-                                </p>
-                                <p>
-                                    Soy un estudiante de ingenieria de sistemas que esta a punto de tomar grado
+                                    Mi nombre es ${user.nombre} ${user.apellido}, vivo en la ciudad de Cartagena, Colombia.
                                 </p>
                             </div>
                         </div>

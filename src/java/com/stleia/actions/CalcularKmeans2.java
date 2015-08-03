@@ -118,6 +118,7 @@ public class CalcularKmeans2 implements Action {
                     + "<th>Disponibilidad</th> "
                     + "<th>Rendimiento</th>"
                     + "<th>Calidad</th>"
+                    + "<th>Indice OEE</th>"
                     + "</tr>"
                     + "</thead>"
                     + "<tbody>";
@@ -129,7 +130,8 @@ public class CalcularKmeans2 implements Action {
                 double x = Math.round(dpTemp.getX() * 100.0) / 100.0;
                 double y = Math.round(dpTemp.getY() * 100.0) / 100.0;
                 double z = Math.round(dpTemp.getZ() * 100.0) / 100.0;
-                datos += "<tr><td>" + x + "</td><td>" + y + "</td><td>" + z + "</td></tr>";
+                double indiceOEE = Math.round((x*y*z) * 100.0) / 100.0;
+                datos += "<tr><td>" + x + "</td><td>" + y + "</td><td>" + z + "<td>"+indiceOEE+"</td></td></tr>";
             }
             datos += "</tbody></table>";
         }

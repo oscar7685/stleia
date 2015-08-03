@@ -1,3 +1,8 @@
+<style type="text/css">
+     #wrapper{
+        overflow: auto !important;
+    }
+</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -71,7 +76,30 @@
             </div>
         </div>
     </div>
-   
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>TEMPERATURA FREIDORA 1 VS TEMPERATURA ALTA PROGRAMADA</h2>
+                </div>
+                <div class="panel-body">
+                    <div id="f1VSap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>TEMPERATURA FREIDORA 1 VS TEMPERATURA BAJA PROGRAMADA</h2>
+                </div>
+                <div class="panel-body">
+                    <div id="f1VSbp"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </div> <!-- .container-fluid -->
@@ -88,7 +116,7 @@
         var datosTF1;
         var datosTF2;
         var datosT1vsSP;
-        var datosT1vsTA, datosT1vsTB, datosAAvsAB;
+        var datosT1vsTA, datosT1vsTB, datosAAvsAB, datosFr1vsTB, datosFr1vsTA;
 
         /*$.ajax({
          type: "POST",
@@ -195,7 +223,7 @@
                     data: datosT1vsTA,
                     xkey: 'y',
                     ykeys: ['a', 'b'],
-                    labels: ['Temperatura freidora 1 ', 'Temperatura alta programada'],
+                    labels: ['Temperatura freidora 2 ', 'Temperatura alta programada'],
                     lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
                 });
             } //fin success
@@ -212,12 +240,47 @@
                     data: datosT1vsTB,
                     xkey: 'y',
                     ykeys: ['a', 'b'],
+                    labels: ['Temperatura freidora 2 ', 'Temperatura baja programada'],
+                    lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
+                });
+            } //fin success
+        }); //fin del $.ajax
+        
+        
+        $.ajax({
+            type: "POST",
+            url: 'Informes?accion=20',
+            dataType: 'json',
+            success: function(dat)
+            {
+                datosFr1vsTA = dat['0']["datos"];
+                Morris.Line({
+                    element: 'f1VSap',
+                    data: datosFr1vsTA,
+                    xkey: 'y',
+                    ykeys: ['a', 'b'],
+                    labels: ['Temperatura freidora 1 ', 'Temperatura alta programada'],
+                    lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
+                });
+            } //fin success
+        }); //fin del $.ajax
+        $.ajax({
+            type: "POST",
+            url: 'Informes?accion=21',
+            dataType: 'json',
+            success: function(dat)
+            {
+                datosFr1vsTB = dat['0']["datos"];
+                Morris.Line({
+                    element: 'f1VSbp',
+                    data: datosFr1vsTB,
+                    xkey: 'y',
+                    ykeys: ['a', 'b'],
                     labels: ['Temperatura freidora 1 ', 'Temperatura baja programada'],
                     lineColors: [Utility.getBrandColor('inverse'), Utility.getBrandColor('midnightblue')]
                 });
             } //fin success
         }); //fin del $.ajax
-
 
     });
 

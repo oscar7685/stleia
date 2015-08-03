@@ -53,8 +53,8 @@
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle username" data-toggle="dropdown">
-                        <span class="hidden-xs">Saad Bittar</span>
-                        <img class="img-circle" src="assets/demo/avatar/saad.png" alt="Dangerfield" />
+                        <span class="hidden-xs">${user.nombre} ${user.apellido}</span>
+                        <img class="img-circle" src="assets/demo/avatar/user.png" alt="usuario" />
 
                     </a>
                     <ul class="dropdown-menu userinfo">
@@ -77,11 +77,11 @@
                                 <div class="widget-body welcome-box tabular">
                                     <div class="tabular-row">
                                         <div class="tabular-cell welcome-avatar">
-                                            <a href="#"><img src="assets/demo/avatar/saad.png" class="avatar"></a>
+                                            <a href="#"><img src="assets/demo/avatar/user.png" class="avatar"></a>
                                         </div>
                                         <div class="tabular-cell welcome-options">
                                             <span class="welcome-text">Bienvenido,</span>
-                                            <a href="#" class="name">Saad Bittar</a>
+                                            <a href="#" class="name">${user.nombre} ${user.apellido}</a>
                                         </div>
                                     </div>
                                 </div>

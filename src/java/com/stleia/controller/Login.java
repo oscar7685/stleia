@@ -57,6 +57,7 @@ public class Login extends HttpServlet {
 
                 if (u != null && u.getPassword().equals(pass) && u.getRol().equals(tipoIngreso)) {
                     session.setAttribute("Usuario", "Admin");
+                    session.setAttribute("user", u);
                     session.setAttribute("TipoUsuario", "" + tipoIngreso);
                     String url = "/WEB-INF/vista/index.jsp";
                     RequestDispatcher rd = request.getRequestDispatcher(url);
